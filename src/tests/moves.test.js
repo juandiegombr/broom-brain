@@ -4,7 +4,7 @@ import {
 
 import {
   playerCards,
-  combinations,
+  commonCards,
 } from './index.mocks'
 
 describe('getAllPossibleMoves', () => {
@@ -13,7 +13,7 @@ describe('getAllPossibleMoves', () => {
     expect(moves).toEqual([])
   })
   it('should return no moves', () => {
-    const moves = getAllPossibleMoves(playerCards, combinations)
+    const moves = getAllPossibleMoves(playerCards, commonCards)
     const expectedMoves = [
       {
         common: [

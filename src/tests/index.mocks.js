@@ -1,7 +1,7 @@
 export const commonCards = [
   { value: 1, suit: 'gold' },
-  { value: 6, suit: 'gold' },
-  { value: 6, suit: 'sword' },
+  { value: 3, suit: 'gold' },
+  { value: 5, suit: 'gold' },
 ]
 
 export const playerCards = [
@@ -10,174 +10,80 @@ export const playerCards = [
   { value: 6, suit: 'sword' },
 ]
 
-export const combinations = [
-  [{ value: 1, suit: 'gold' }],
-  [{ value: 3, suit: 'gold' }],
-  [{ value: 5, suit: 'gold' }],
-  [
-    { value: 1, suit: 'gold' },
-    { value: 3, suit: 'gold' },
-  ],
-  [
-    { value: 1, suit: 'gold' },
-    { value: 5, suit: 'gold' },
-  ],
-  [
-    { value: 3, suit: 'gold' },
-    { value: 5, suit: 'gold' },
-  ],
-  [
+export const scenarioWithSevenGold = {
+  commonCards: [
     { value: 1, suit: 'gold' },
     { value: 3, suit: 'gold' },
     { value: 5, suit: 'gold' },
   ],
-]
+  playerCards: [
+    { value: 7, suit: 'sword' },
+    { value: 7, suit: 'gold' },
+  ],
+}
 
-export const movesWithSevenGold = [
-  {
-    common: [
-      { value: 1, suit: 'gold' },
-      { value: 3, suit: 'gold' },
-      { value: 5, suit: 'gold' },
-    ],
-    player: { value: 7, suit: 'sword' }
-  },
-  {
-    common: [
-      { value: 1, suit: 'gold' },
-      { value: 3, suit: 'gold' },
-      { value: 5, suit: 'gold' },
-    ],
-    player: { value: 7, suit: 'gold' }
-  }
-]
+export const scenarioWithBroom = {
+  commonCards: [
+    { value: 1, suit: 'gold' },
+    { value: 3, suit: 'gold' },
+    { value: 5, suit: 'gold' },
+  ],
+  playerCards: [
+    { value: 6, suit: 'wood' },
+    { value: 7, suit: 'gold' },
+  ],
+}
 
-export const commonCardsWithBroom = [
-  { value: 1, suit: 'gold' },
-  { value: 3, suit: 'gold' },
-  { value: 5, suit: 'gold' },
-]
-
-export const movesWithBroom = [
-  {
-    common: [
-      { value: 1, suit: 'gold' },
-      { value: 5, suit: 'gold' },
-    ],
-    player: { value: 7, suit: 'sword' }
-  },
-  {
-    common: [
-      { value: 1, suit: 'gold' },
-      { value: 3, suit: 'gold' },
-      { value: 5, suit: 'gold' },
-    ],
-    player: { value: 7, suit: 'wood' }
-  }
-]
-
-export const scenarioForMovesWithSevens = {
+export const scenarioWithSevens = {
   commonCards: [
     { value: 9, suit: 'wood' },
     { value: 1, suit: 'wood' },
     { value: 7, suit: 'wood' },
   ],
-  moves: [
-    {
-      common: [
-        { value: 9, suit: 'wood' },
-        { value: 1, suit: 'wood' },
-      ],
-      player: { value: 5, suit: 'sword' }
-    },
-    {
-      common: [
-        { value: 1, suit: 'wood' },
-        { value: 7, suit: 'wood' },
-      ],
-      player: { value: 7, suit: 'sword' }
-    },
-  ]
+  playerCards: [
+    { value: 5, suit: 'sword' },
+    { value: 7, suit: 'sword' },
+  ],
 }
 
-export const scenarioForBestMoveWithSevens = {
+export const scenarioWithBestSevens = {
   commonCards: [
     { value: 3, suit: 'wood' },
     { value: 4, suit: 'wood' },
     { value: 1, suit: 'wood' },
     { value: 7, suit: 'wood' },
   ],
-  moves: [
-    {
-      common: [
-        { value: 3, suit: 'wood' },
-        { value: 4, suit: 'wood' },
-        { value: 1, suit: 'wood' },
-      ],
-      player: { value: 7, suit: 'sword' }
-    },
-    {
-      common: [
-        { value: 1, suit: 'wood' },
-        { value: 7, suit: 'wood' },
-      ],
-      player: { value: 7, suit: 'sword' }
-    },
-  ]
+  playerCards: [
+    { value: 5, suit: 'sword' },
+    { value: 7, suit: 'sword' },
+  ],
 }
 
-export const scenarioForMoveWithGold = {
+export const scenarioWithGold = {
   commonCards: [
     { value: 3, suit: 'wood' },
     { value: 4, suit: 'wood' },
     { value: 2, suit: 'wood' },
     { value: 1, suit: 'gold' },
-    { value: 7, suit: 'wood' },
+    { value: 6, suit: 'gold' },
   ],
-  moves: [
-    {
-      common: [
-        { value: 3, suit: 'wood' },
-        { value: 4, suit: 'wood' },
-        { value: 2, suit: 'gold' },
-      ],
-      player: { value: 6, suit: 'sword' }
-    },
-    {
-      common: [
-        { value: 1, suit: 'gold' },
-        { value: 6, suit: 'gold' },
-      ],
-      player: { value: 8, suit: 'sword' }
-    },
-  ]
+  playerCards: [
+    { value: 6, suit: 'sword' },
+    { value: 8, suit: 'sword' },
+  ],
 }
 
-export const scenarioForMoveWithMoreCards = {
+export const scenarioWithMoreCards = {
   commonCards: [
-    { value: 3, suit: 'wood' },
     { value: 4, suit: 'wood' },
     { value: 2, suit: 'wood' },
-    { value: 1, suit: 'wood' },
-    { value: 7, suit: 'wood' },
+    { value: 2, suit: 'sword' },
+    { value: 2, suit: 'heart' },
+    { value: 10, suit: 'wood' },
   ],
-  moves: [
-    {
-      common: [
-        { value: 1, suit: 'wood' },
-        { value: 6, suit: 'wood' },
-      ],
-      player: { value: 8, suit: 'sword' }
-    },
-    {
-      common: [
-        { value: 3, suit: 'wood' },
-        { value: 4, suit: 'wood' },
-        { value: 2, suit: 'wood' },
-      ],
-      player: { value: 6, suit: 'sword' }
-    },
-  ]
+  playerCards: [
+    { value: 5, suit: 'sword' },
+  ],
 }
 
 export const passScenario = {

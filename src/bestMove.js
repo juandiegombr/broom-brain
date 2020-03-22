@@ -10,13 +10,22 @@ import {
   sortByCardsCount,
 } from './utils/moveSort'
 
+import {
+  getAllPossibleMoves,
+} from './moves'
+
 const isBroom = commonCards => move => commonCards.length > 0 && (move.common.length === commonCards.length)
 
-export const getTheBestMove = (moves, commonCards = []) => {
+export const getMoveToPlay = ({ playerCards, commonCards = [], moves }) => {
+  if (!moves) {
+    moves = getAllPossibleMoves(playerCards, commonCards)
+  }
+  if (moves.length === 0) return null
+
   if (moves.length === 1) return moves[0]
 
   const movesWithBroom = moves.filter(isBroom(commonCards))
-  if (movesWithBroom.length) return getTheBestMove(movesWithBroom)
+  if (movesWithBroom.length) return getMoveToPlay({ moves: movesWithBroom })
 
   const moveWithTheSevenGold = moves.find(hasTheSevenGold)
   if (moveWithTheSevenGold) return moveWithTheSevenGold

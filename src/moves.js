@@ -1,3 +1,5 @@
+import { getAllPossibleCombinations } from './combinations'
+
 const getCombinationValue = combination => combination.reduce((sum, { value }) => value + sum, 0)
 
 const isValidCombination = playerCards => combination => {
@@ -6,7 +8,8 @@ const isValidCombination = playerCards => combination => {
   return playerCardsValues.some(value => (value + combinationValue) === 15)
 }
 
-export const getAllPossibleMoves = (playerCards, combinations) => {
+export const getAllPossibleMoves = (playerCards, commonCards) => {
+  const combinations = getAllPossibleCombinations(commonCards)
   const validCombinations = combinations.filter(isValidCombination(playerCards))
 
   const moves = validCombinations.map(combination => {
@@ -22,7 +25,7 @@ export const getAllPossibleMoves = (playerCards, combinations) => {
 
     return {
       common: combination,
-      player: matchingCard[0],
+      player: matchingCards[0],
     }
   })
 
