@@ -9,7 +9,6 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
-<<<<<<< HEAD
             - attach_workspace:
                 at: ~/repo
             - run:
@@ -26,12 +25,6 @@ jobs:
                 command: |
                   npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
                   npm publish --access public
-=======
-            - run: npm install
-            - run: npm test
-            - run: npm build
-            - run: npm publish
->>>>>>> Added build and publish step
 workflows:
     build-and-test:
       jobs:
