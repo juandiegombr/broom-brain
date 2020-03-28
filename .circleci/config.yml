@@ -10,20 +10,20 @@ jobs:
       - node/with-cache:
           steps:
             - run:
-              name: Installing dependencies
-              command: npm install
+                name: Installing dependencies
+                command: npm install
             - run:
-              name: Running tests
-              command: npm test
+                name: Running tests
+                command: npm test
             - run:
-              name: Build the package
-              command: npm build
+                name: Build the package
+                command: npm build
             - run:
-              name: Authenticate with registry
-              command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+                name: Authenticate with registry
+                command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
             - run:
-              name: Publish package
-              command: npm publish
+                name: Publish package
+                command: npm publish
 workflows:
     build-and-test:
       jobs:
