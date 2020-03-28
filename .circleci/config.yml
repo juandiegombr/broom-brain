@@ -9,21 +9,22 @@ jobs:
       - checkout
       - node/with-cache:
           steps:
+            - attach_workspace:
+                at: ~/repo
             - run:
                 name: Installing dependencies
                 command: npm install
             - run:
                 name: Running tests
-                command: npm test
+                command: npm run test
             - run:
                 name: Build the package
-                command: npm build
-            - run:
-                name: Authenticate with registry
-                command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/repo/.npmrc
+                command: npm run build
             - run:
                 name: Publish package
-                command: npm publish
+                command: |
+                  npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
+                  npm publish --access public
 workflows:
     build-and-test:
       jobs:
