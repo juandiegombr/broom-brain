@@ -20,14 +20,14 @@ jobs:
             - run:
                 name: Build the package
                 command: npm run build
-            - run:
-                name: Testing
-                command: cat $NPM_TOKEN && cat $NPM
+            - run: cat $NPM_TOKEN
+            - run: cat $NPM
+            - run: cat $NPM_AUTH
             - run:
                 name: Publish package
                 command: |
-                  npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
-                  npm publish --access public
+                    npm set $NPM_AUTH
+                    npm publish --access public
 workflows:
     build-and-test:
       jobs:
