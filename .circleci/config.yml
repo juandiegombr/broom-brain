@@ -21,6 +21,9 @@ jobs:
                 name: Build the package
                 command: npm run build
             - run:
+                name: Testing
+                command: cat $NPM_TOKEN && cat $NPM
+            - run:
                 name: Publish package
                 command: |
                   npm set //registry.npmjs.org/:_authToken=$NPM_TOKEN
