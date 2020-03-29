@@ -42,10 +42,13 @@ workflows:
               tags:
                 only: /^v.*/
               branches:
-                only: /^v.*/
+                ignore: /.*/
     build and publish:
       jobs:
-        - test
+        - test:
+          filters:
+            tags:
+              only: /^v.*/
         - publish:
             requires:
                 - test
