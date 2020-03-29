@@ -35,17 +35,12 @@ jobs:
                     npm set $NPM_AUTH
                     npm publish --access public
 workflows:
-    for tags:
-      jobs:
-        - test:
-            filters:
-              tags:
-                only: /^v.*/
-              branches:
-                only: /^v.*/
     build and publish:
       jobs:
-        - test
+        - test:
+          filters:
+            tags:
+              only: /^v.*/
         - publish:
             requires:
                 - test
