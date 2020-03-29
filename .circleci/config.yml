@@ -2,7 +2,7 @@ version: 2.1
 orbs:
   node: circleci/node@1.1.6
 jobs:
-  build-and-test:
+  test:
     executor:
       name: node/default
     steps:
@@ -17,6 +17,16 @@ jobs:
             - run:
                 name: Running tests
                 command: npm run test
+            - run: env
+  publish:
+    executor:
+      name: node/default
+    steps:
+      - checkout
+      - node/with-cache:
+          steps:
+            - attach_workspace:
+                at: ~/repo
             - run:
                 name: Build the package
                 command: npm run build
@@ -27,6 +37,17 @@ jobs:
                     npm set $NPM_AUTH
                     npm publish --access public
 workflows:
-    build-and-test:
+    test:
       jobs:
-        - build-and-test
+        - test
+    publish:
+      jobs:
+        - test
+        - publish:
+            filters:
+              tags:
+                only: /.*/
+              branches:
+                ignore: /.*/
+            requires:
+                - test
