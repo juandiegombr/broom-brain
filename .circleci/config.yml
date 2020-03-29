@@ -29,7 +29,6 @@ jobs:
             - run:
                 name: Build the package
                 command: npm run build
-            - run: env
             - run:
                 name: Publish package
                 command: |
@@ -40,10 +39,10 @@ workflows:
       jobs:
         - test
         - publish:
+            requires:
+                - test
             filters:
               tags:
                 only: /^v.*/
               branches:
-                only: master
-            requires:
-                - test
+                ignore: /.*/
