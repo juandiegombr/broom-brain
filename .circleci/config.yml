@@ -37,10 +37,7 @@ jobs:
 workflows:
     for tags:
       jobs:
-        - test
-        - publish:
-            requires:
-                - test
+        - test:
             filters:
               tags:
                 only: /^v.*/
