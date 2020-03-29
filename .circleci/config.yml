@@ -20,9 +20,9 @@ jobs:
             - run:
                 name: Build the package
                 command: npm run build
-            - run: cat $NPM_TOKEN
-            - run: cat $NPM
-            - run: cat $NPM_AUTH
+            - run: echo $NPM_TOKEN
+            - run: echo $NPM
+            - run: echo $NPM_AUTH
             - run:
                 name: Publish package
                 command: |
