@@ -32,7 +32,7 @@ jobs:
             - run:
                 name: Publish package
                 command: |
-                    npm set $NPM_AUTH
+                    npm set //registry.npmjs.org/:_authToken=$NPM
                     npm publish --access public
 workflows:
   version: 2
