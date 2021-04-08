@@ -10,7 +10,16 @@ jobs:
           password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
     steps:
       - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
+      - attach_workspace:
+          at: ~/repo
+      - run:
+          name: Build the package
+          command: npm run build
+      - run:
+          name: Publish package
+          command: |
+              npm set //registry.npmjs.org/:_authToken=$NPM
+              npm publish --access public
 # jobs:
 #   publish:
 #     executor:
