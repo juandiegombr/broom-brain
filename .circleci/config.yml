@@ -7,7 +7,7 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - node/with-cache:
+      - node/default:
           steps:
             - attach_workspace:
                 at: ~/repo
@@ -22,7 +22,7 @@ jobs:
       name: node/default
     steps:
       - checkout
-      - node/with-cache:
+      - node/default:
           steps:
             - attach_workspace:
                 at: ~/repo
