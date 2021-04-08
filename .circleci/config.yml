@@ -35,10 +35,10 @@ orbs:
 #                     npm set //registry.npmjs.org/:_authToken=$NPM
 #                     npm publish --access public
 workflows:
-  version: 2
+  # version: 2
   build-and-deploy:
     jobs:
-      - node/install-npm:
+      - node/test:
           filters:
             tags:
               only: /.*/
