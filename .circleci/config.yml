@@ -1,17 +1,39 @@
 version: 2.1
 orbs:
   node: circleci/node@2.0.2
+# jobs:
+#   publish:
+    # docker:
+    #   - image: cimg/node:14.10.1 # the primary container, where your job's commands are run
+    #     auth:
+    #       username: juandiegombr
+    #       password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    # steps:
+    #   - checkout # check out the code in the project directory
+    #   - attach_workspace:
+    #       at: ~/repo
+    #   - run:
+    #       name: Install dependencies
+    #       command: npm run install
+    #   - run:
+    #       name: Build the package
+    #       command: npm run build
+    #   - run:
+    #       name: Publish package
+    #       command: |
+    #           npm set //registry.npmjs.org/:_authToken=$NPM
+    #           npm publish --access public
 jobs:
   publish:
-    docker:
-      - image: cimg/node:14.10.1 # the primary container, where your job's commands are run
-        auth:
-          username: juandiegombr
-          password: $DOCKERHUB_PASSWORD  # context / project UI env-var reference
+    executor: node/default
     steps:
-      - checkout # check out the code in the project directory
-      - attach_workspace:
-          at: ~/repo
+      - checkout
+      # - node/install-packages:
+      #     cache-path: ~/project/node_modules
+      #     override-ci-command: npm install
+      - run:
+          name: Install dependencies
+          command: npm ci
       - run:
           name: Build the package
           command: npm run build
@@ -20,24 +42,6 @@ jobs:
           command: |
               npm set //registry.npmjs.org/:_authToken=$NPM
               npm publish --access public
-# jobs:
-#   publish:
-#     executor:
-#       name: node/default
-#     steps:
-#       - checkout
-#       - node/default:
-#           steps:
-#             - attach_workspace:
-#                 at: ~/repo
-#             - run:
-#                 name: Build the package
-#                 command: npm run build
-#             - run:
-#                 name: Publish package
-#                 command: |
-#                     npm set //registry.npmjs.org/:_authToken=$NPM
-#                     npm publish --access public
 workflows:
   build-and-deploy:
     jobs:
