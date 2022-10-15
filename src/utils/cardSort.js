@@ -14,7 +14,4 @@ const sortBySuitAndValue = (a, b) => {
   return 0
 }
 
-export {
-  sortByMostValuable,
-  sortBySuitAndValue,
-}
+export { sortByMostValuable, sortBySuitAndValue }

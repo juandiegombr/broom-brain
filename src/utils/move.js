@@ -1,30 +1,30 @@
 import { isSeven, isGold } from './card'
 
-const countCards = move => move.common.length + 1
+const countCards = (move) => move.common.length + 1
 
-const countSevens = move => {
+const countSevens = (move) => {
   const cards = [...move.common, move.player]
   return cards.filter(isSeven).length
 }
 
-const countGold = move => {
+const countGold = (move) => {
   const cards = [...move.common, move.player]
   return cards.filter(isGold).length
 }
 
-const hasSevens = move => {
+const hasSevens = (move) => {
   const cards = [...move.common, move.player]
   return cards.find(isSeven)
 }
 
-const hasGold = move => {
+const hasGold = (move) => {
   const cards = [...move.common, move.player]
   return cards.find(isGold)
 }
 
-const hasTheSevenGold = move => {
+const hasTheSevenGold = (move) => {
   const cards = [...move.common, move.player]
-  return cards.some(card => isSeven(card) && isGold(card))
+  return cards.some((card) => isSeven(card) && isGold(card))
 }
 
 export {

@@ -16,11 +16,13 @@ const isIncludedInCombination = (combinationNumber, position) => {
 export const getAllPossibleCombinations = (commonCards) => {
   if (!commonCards.length) return []
   const totalCombinations = Math.pow(2, commonCards.length)
-  const combinations = Array
-    .from({ length: totalCombinations }, (_, combinationNumber) => {
+  const combinations = Array.from(
+    { length: totalCombinations },
+    (_, combinationNumber) => {
       return commonCards.filter((card, i) => {
         if (isIncludedInCombination(combinationNumber, i)) return card
       })
-    })
-  return combinations.filter(combination => combination.length)
+    }
+  )
+  return combinations.filter((combination) => combination.length)
 }
