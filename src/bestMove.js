@@ -1,8 +1,4 @@
-import {
-  hasSevens,
-  hasGold,
-  hasTheSevenGold,
-} from './utils/move'
+import { hasSevens, hasGold, hasTheSevenGold } from './utils/move'
 
 import {
   sortBySevenCount,
@@ -10,11 +6,10 @@ import {
   sortByCardsCount,
 } from './utils/moveSort'
 
-import {
-  getAllPossibleMoves,
-} from './moves'
+import { getAllPossibleMoves } from './moves'
 
-const isBroom = commonCards => move => commonCards.length > 0 && (move.common.length === commonCards.length)
+const isBroom = (commonCards) => (move) =>
+  commonCards.length > 0 && move.common.length === commonCards.length
 
 export const getMoveToPlay = ({ playerCards, commonCards = [], moves }) => {
   if (!moves) {
@@ -44,5 +39,4 @@ export const getMoveToPlay = ({ playerCards, commonCards = [], moves }) => {
 
   moves.sort(sortByCardsCount)
   return moves[0]
-
 }

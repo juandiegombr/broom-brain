@@ -1,6 +1,4 @@
-import {
-  getMoveToPlay,
-} from '../bestMove'
+import { getMoveToPlay } from '../bestMove'
 
 import {
   scenarioWithSevenGold,
@@ -25,7 +23,7 @@ describe('getTheBestMove', () => {
         { value: 3, suit: 'gold' },
         { value: 5, suit: 'gold' },
       ],
-      player: { value: 7, suit: 'gold' }
+      player: { value: 7, suit: 'gold' },
     }
     expect(bestMove).toEqual(expectedMove)
   })
@@ -39,7 +37,7 @@ describe('getTheBestMove', () => {
         { value: 3, suit: 'gold' },
         { value: 5, suit: 'gold' },
       ],
-      player: { value: 6, suit: 'wood' }
+      player: { value: 6, suit: 'wood' },
     }
     expect(bestMove).toEqual(expectedMove)
   })
@@ -52,7 +50,7 @@ describe('getTheBestMove', () => {
         { value: 1, suit: 'wood' },
         { value: 7, suit: 'wood' },
       ],
-      player: { value: 7, suit: 'sword' }
+      player: { value: 7, suit: 'sword' },
     }
     expect(bestMove).toEqual(expectedMove)
   })
@@ -65,7 +63,7 @@ describe('getTheBestMove', () => {
         { value: 1, suit: 'wood' },
         { value: 7, suit: 'wood' },
       ],
-      player: { value: 7, suit: 'sword' }
+      player: { value: 7, suit: 'sword' },
     }
     expect(bestMove).toEqual(selectedMove)
   })
@@ -78,7 +76,7 @@ describe('getTheBestMove', () => {
         { value: 1, suit: 'gold' },
         { value: 6, suit: 'gold' },
       ],
-      player: { value: 8, suit: 'sword' }
+      player: { value: 8, suit: 'sword' },
     }
     expect(bestMove).toEqual(expectedMove)
   })
@@ -93,9 +91,8 @@ describe('getTheBestMove', () => {
         { value: 2, suit: 'sword' },
         { value: 2, suit: 'heart' },
       ],
-      player: { value: 5, suit: 'sword' }
+      player: { value: 5, suit: 'sword' },
     }
     expect(bestMove).toEqual(expectedMove)
   })
 })
-

@@ -5,6 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "rollup --config",
+    "lint": "eslint . --fix",
     "test": "jest",
     "test:watch": "jest --watchAll"
   },
@@ -15,13 +16,20 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "rollup": "^2.2.0",
-    "rollup-plugin-babel": "^4.4.0",
-    "jest": "^25.1.0",
-    "@babel/cli": "^7.8.4",
-    "@babel/core": "^7.8.7",
-    "@babel/preset-env": "^7.8.7",
+    "@babel/cli": "^7.19.3",
+    "@babel/core": "^7.19.3",
+    "@babel/eslint-parser": "^7.19.1",
+    "@babel/preset-env": "^7.19.4",
+    "babel-eslint": "^10.1.0",
     "babel-jest": "^25.1.0",
-    "babel-plugin-external-helpers": "^6.22.0"
+    "babel-plugin-external-helpers": "^6.22.0",
+    "eslint": "^8.25.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-jest": "^25.1.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "jest": "^25.1.0",
+    "prettier": "^2.7.1",
+    "rollup": "^2.2.0",
+    "rollup-plugin-babel": "^4.4.0"
   }
 }

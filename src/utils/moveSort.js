@@ -1,8 +1,4 @@
-import {
-  countCards,
-  countGold,
-  countSevens,
-} from './move'
+import { countCards, countGold, countSevens } from './move'
 
 const sortByBigger = (func) => (a, b) => {
   if (func(a) > func(b)) return -1
@@ -21,8 +17,4 @@ const sortByCardsCount = (a, b) => {
   return sortByBigger(countCards)(a, b)
 }
 
-export {
-  sortBySevenCount,
-  sortByGoldCount,
-  sortByCardsCount,
-}
+export { sortBySevenCount, sortByGoldCount, sortByCardsCount }

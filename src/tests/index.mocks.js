@@ -81,9 +81,7 @@ export const scenarioWithMoreCards = {
     { value: 2, suit: 'heart' },
     { value: 10, suit: 'wood' },
   ],
-  playerCards: [
-    { value: 5, suit: 'sword' },
-  ],
+  playerCards: [{ value: 5, suit: 'sword' }],
 }
 
 export const passScenario = {
@@ -93,9 +91,7 @@ export const passScenario = {
       { value: 1, suit: 'gold' },
       { value: 4, suit: 'gold' },
     ],
-    commonCards: [
-      { value: 4, suit: 'gold' },
-    ]
+    commonCards: [{ value: 4, suit: 'gold' }],
   },
   emptyDeck: {
     playerCards: [
@@ -103,7 +99,7 @@ export const passScenario = {
       { value: 4, suit: 'gold' },
       { value: 4, suit: 'wood' },
     ],
-    commonCards: []
+    commonCards: [],
   },
   lessThanFiveWithCommon: {
     playerCards: [
@@ -111,9 +107,7 @@ export const passScenario = {
       { value: 1, suit: 'gold' },
       { value: 3, suit: 'gold' },
     ],
-    commonCards: [
-      { value: 1, suit: 'sword' },
-    ]
+    commonCards: [{ value: 1, suit: 'sword' }],
   },
   commonCardsOdd: {
     playerCards: [
@@ -125,7 +119,7 @@ export const passScenario = {
       { value: 2, suit: 'sword' },
       { value: 6, suit: 'sword' },
       { value: 8, suit: 'sword' },
-    ]
+    ],
   },
   moreThanFifteenWithCommon: {
     playerCards: [
@@ -136,7 +130,7 @@ export const passScenario = {
     commonCards: [
       { value: 2, suit: 'sword' },
       { value: 6, suit: 'sword' },
-    ]
+    ],
   },
   noCommonCardsPreference: {
     playerCards: [
@@ -148,6 +142,6 @@ export const passScenario = {
       { value: 2, suit: 'sword' },
       { value: 5, suit: 'sword' },
       { value: 8, suit: 'sword' },
-    ]
+    ],
   },
 }
