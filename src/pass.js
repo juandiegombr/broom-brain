@@ -5,12 +5,9 @@ import {
   getAllCardsThatCountMoreThanFifteen,
 } from './utils/cards'
 
-import {
-  sortByMostValuable,
-  sortBySuitAndValue,
-} from './utils/cardSort'
+import { sortByMostValuable, sortBySuitAndValue } from './utils/cardSort'
 
-const chooseTheBestCardToPass = cards => {
+const chooseTheBestCardToPass = (cards) => {
   const sortedCards = cards.sort(sortBySuitAndValue)
   return sortedCards[0]
 }
@@ -21,22 +18,30 @@ export const getCardToPass = (playerCards, commonCards) => {
     if (cards.length === 1) return cards[0]
     return chooseTheBestCardToPass(cards)
   }
-  const countCommonCards = commonCards
-    .reduce((acc, card) => card.value + acc, 0)
+  const countCommonCards = commonCards.reduce(
+    (acc, card) => card.value + acc,
+    0
+  )
 
   if (countCommonCards < 4) {
-    const cards = getAllCardsThatCountLessThanFive(playerCards, countCommonCards)
+    const cards = getAllCardsThatCountLessThanFive(
+      playerCards,
+      countCommonCards
+    )
     if (cards.length === 1) return cards[0]
     return chooseTheBestCardToPass(cards)
   }
 
   if (countCommonCards < 15) {
-    const cards = getAllCardsThatCountMoreThanFifteen(playerCards, countCommonCards)
+    const cards = getAllCardsThatCountMoreThanFifteen(
+      playerCards,
+      countCommonCards
+    )
     if (cards.length === 1) return cards[0]
     return chooseTheBestCardToPass(cards)
   }
 
-  const areAllCommonCardsOdd = commonCards.every(card => !(card % 2))
+  const areAllCommonCardsOdd = commonCards.every((card) => !(card % 2))
 
   if (areAllCommonCardsOdd) {
     const cards = getAllOddCards(playerCards)
